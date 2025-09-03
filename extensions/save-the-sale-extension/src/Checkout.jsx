@@ -197,19 +197,14 @@ function Extension() {
       <Banner status="warning">
         <BlockStack spacing="tight">
           <Text size="medium" emphasis="strong">
-            ⚠️ Compatibility Warning
-          </Text>
-          <Text size="small">
-            The following products in your cart are not compatible:
+            Compatibility Warning
           </Text>
           <BlockStack spacing="extraTight">
             {incompatibilityInfo.map((conflict, index) => (
               <BlockStack key={conflict.product.id} spacing="extraTight">
                 <Text size="small" emphasis="strong">
                   • {conflict.product.merchandise.title} {conflict.product.quantity > 1 && `(Qty: ${conflict.product.quantity})`}
-                </Text>
-                <Text size="small" appearance="subdued">
-                  &nbsp;&nbsp;Not compatible with: {conflict.incompatibleWith.map(item => item.merchandise.title).join(', ')}
+                  is not compatible with {conflict.incompatibleWith.map(item => item.merchandise.title).join(', ')}
                 </Text>
               </BlockStack>
             ))}
@@ -218,14 +213,6 @@ function Extension() {
             Please review these products before completing your purchase.
           </Text>
         </BlockStack>
-      </Banner>
-      
-      
-      <Banner status="info">
-        <Text size="small">
-          Need help choosing the right size? Contact our customer support team 
-          for personalized recommendations.
-        </Text>
       </Banner>
     </BlockStack>
   );
